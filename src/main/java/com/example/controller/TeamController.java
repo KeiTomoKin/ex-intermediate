@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.controller;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Team;
+import com.example.service.TeamService;
 
 
 /**
