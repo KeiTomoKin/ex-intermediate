@@ -2,6 +2,7 @@ package com.example.domain;
 
 /**
  * ホテル情報を表すドメイン
+ * 
  * @author keita.tomooka
  *
  */
@@ -20,7 +21,7 @@ public class Hotel {
 	private Integer price;
 	/** 駐車場の有無 */
 	private String parking;
-	
+
 	@Override
 	public String toString() {
 		return "Hotel [id=" + id + ", areaName=" + areaName + ", hotelName=" + hotelName + ", address=" + address
@@ -82,8 +83,5 @@ public class Hotel {
 	public void setParking(String parking) {
 		this.parking = parking;
 	}
-	
-	
-	
-	
+
 }

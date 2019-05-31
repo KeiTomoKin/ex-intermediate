@@ -41,7 +41,7 @@ public class TeamServiceTest {
 		assertThat("本拠地が登録されていません", resultTeam.getHeadquarters(), is("東京ドーム（東京都・文京区）"));
 		assertThat("発足が登録されていません", resultTeam.getInauguration(), is("1934年12月26日"));
 		assertThat("歴史が登録されていません", resultTeam.getHistory(),
-				is("大日本東京野球倶楽部（1934年）\r\n" + "↓\r\n" + "東京巨人軍（1935年〜1946年）\r\n" + "↓\r\n" + "読売ジャイアンツ（1947年〜）"));
+				is("大日本東京野球倶楽部（1934年）\n" + "↓\n" + "東京巨人軍（1935年〜1946年）\n" + "↓\n" + "読売ジャイアンツ（1947年〜）"));
 
 		System.out.println("主キー検索するテスト終了");
 	}
