@@ -31,7 +31,7 @@ public class TeamService {
 	}
 
 	/**
-	 * チーム情報を取得する
+	 * チーム情報を取得する.
 	 * 
 	 * @param id ID
 	 * @return チーム情報
