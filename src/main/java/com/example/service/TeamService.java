@@ -10,7 +10,7 @@ import com.example.domain.Team;
 import com.example.repository.TeamRepository;
 
 /**
- * チーム情報を操作するサービス	.
+ * チーム情報を操作するサービス .
  * 
  * @author keita.tomooka
  *
@@ -32,6 +32,7 @@ public class TeamService {
 
 	/**
 	 * チーム情報を取得する
+	 * 
 	 * @param id ID
 	 * @return チーム情報
 	 */
