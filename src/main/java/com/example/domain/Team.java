@@ -1,15 +1,26 @@
 package com.example.domain;
 
+/**
+ * チーム情報を表すドメイン
+ * @author keita.tomooka
+ *
+ */
 public class Team {
+	/** ID */
 	Integer id;
-	String league_name;
-	String team_name;
+	/** リーグ名 */
+	String leagueName;
+	/** 球団名 */
+	String teamName;
+	/** 本拠地 */
 	String headquarters;
+	/** 発足 */
 	String inauguration;
+	/** 歴史 */
 	String history;
 	@Override
 	public String toString() {
-		return "Team [id=" + id + ", league_name=" + league_name + ", team_name=" + team_name + ", headquarters="
+		return "Team [id=" + id + ", leagueName=" + leagueName + ", teamName=" + teamName + ", headquarters="
 				+ headquarters + ", inauguration=" + inauguration + ", history=" + history + "]";
 	}
 	public Integer getId() {
@@ -18,17 +29,17 @@ public class Team {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getLeague_name() {
-		return league_name;
+	public String getLeagueName() {
+		return leagueName;
 	}
-	public void setLeague_name(String league_name) {
-		this.league_name = league_name;
+	public void setLeagueName(String leagueName) {
+		this.leagueName = leagueName;
 	}
-	public String getTeam_name() {
-		return team_name;
+	public String getTeamName() {
+		return teamName;
 	}
-	public void setTeam_name(String team_name) {
-		this.team_name = team_name;
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
 	public String getHeadquarters() {
 		return headquarters;
@@ -48,6 +59,7 @@ public class Team {
 	public void setHistory(String history) {
 		this.history = history;
 	}
+	
 	
 	
 	
