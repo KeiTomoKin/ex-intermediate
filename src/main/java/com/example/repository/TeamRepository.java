@@ -38,7 +38,7 @@ public class TeamRepository {
 	 * @return チーム一覧情報を返す
 	 */
 	public List<Team> findAll() {
-		String sql = "SELECT id,leagu_name,team_name,headquarters,inaugration,history ORDER BY inauguration";
+		String sql = "SELECT id,league_name,team_name,headquarters,inauguration,history FROM teams ORDER BY inauguration";
 		List<Team> teamList = template.query(sql, TEAM_ROW_MAPPER);
 		return teamList;
 	}
@@ -50,7 +50,7 @@ public class TeamRepository {
 	 * @return チーム情報
 	 */
 	public Team load(Integer id) {
-		String sql = "SELECT id,leagu_name,team_name,headquarters,inaugration,history WEHER :id";
+		String sql = "SELECT id,league_name,team_name,headquarters,inauguration,history FROM teams WEHER :id";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		Team team = template.queryForObject(sql, param, TEAM_ROW_MAPPER);
 		return team;
