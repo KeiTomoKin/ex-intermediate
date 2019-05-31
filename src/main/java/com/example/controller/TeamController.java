@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.domain.Team;
 import com.example.service.TeamService;
 
-
 /**
  * チーム関連機能の処理の制御を行うコントローラー
  * 
@@ -35,16 +34,17 @@ public class TeamController {
 		model.addAttribute("teamList", teamList);
 		return "team/list";
 	}
-	
+
 	/**
 	 * チーム情報を出力する.
+	 * 
 	 * @param id ID
 	 * @param model リクエストスコープ
- 	 * @return チーム詳細画面
+	 * @return チーム詳細画面
 	 */
 	@RequestMapping("/showDetail")
-	public String showDetail(String id,Model model) {
-		Team team =teamService.showDetail(Integer.valueOf(id));
+	public String showDetail(String id, Model model) {
+		Team team = teamService.showDetail(Integer.valueOf(id));
 		model.addAttribute("team", team);
 		return "team/detail";
 	}

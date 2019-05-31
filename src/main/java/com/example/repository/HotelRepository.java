@@ -25,6 +25,9 @@ public class HotelRepository {
 		hotel.setAreaName(rs.getString("area_name"));
 		hotel.setHotelName(rs.getString("hotel_name"));
 		hotel.setAddress(rs.getString("address"));
+		hotel.setNearestStation(rs.getString("nearest_station"));
+		hotel.setPrice(rs.getInt("price"));
+		hotel.setParking(rs.getString("parking"));
 		return hotel;
 	};
 	@Autowired
@@ -36,11 +39,18 @@ public class HotelRepository {
 	 * @param price 金額
 	 * @return ホテル情報のリスト
 	 */
-	public List<Hotel> findByPlice(Integer price) {
-		String sql = "SELECT id,area_name, hotel_name, address, nearest_station, price, parking FROM hotels WHERE price <= :price ORDER BY price DESC";
-		SqlParameterSource param = new MapSqlParameterSource().addValue("price", price);
-		List<Hotel> hotelList = template.query(sql, param, HOTEL_ROW_MAPPER);
-		return hotelList;
+	public List<Hotel> searchByLessThanPrice(Integer price) {
+		if (price == null) {
+			String sql = "SELECT id,area_name, hotel_name, address, nearest_station, price, parking FROM hotels ORDER BY price DESC";
+			SqlParameterSource param = new MapSqlParameterSource();
+			List<Hotel> hotelList = template.query(sql, param, HOTEL_ROW_MAPPER);
+			return hotelList;
+		} else {
+			String sql = "SELECT id,area_name, hotel_name, address, nearest_station, price, parking FROM hotels WHERE price <= :price ORDER BY price DESC";
+			SqlParameterSource param = new MapSqlParameterSource().addValue("price", price);
+			List<Hotel> hotelList = template.query(sql, param, HOTEL_ROW_MAPPER);
+			return hotelList;
+		}
 
 	}
 }

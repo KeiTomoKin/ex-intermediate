@@ -1,18 +1,14 @@
 package com.example;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.domain.Team;
@@ -22,13 +18,9 @@ import com.example.repository.TeamRepository;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TeamServiceTest {
+	
 	@Autowired
 	private TeamRepository teamRepository;
-
-	@Autowired
-	private NamedParameterJdbcTemplate template;
-
-
 	
 	@Test
 	public void testLoad() {
@@ -41,7 +33,7 @@ public class TeamServiceTest {
 		assertThat("本拠地が登録されていません", resultTeam.getHeadquarters(), is("東京ドーム（東京都・文京区）"));
 		assertThat("発足が登録されていません", resultTeam.getInauguration(), is("1934年12月26日"));
 		assertThat("歴史が登録されていません", resultTeam.getHistory(),
-				is("大日本東京野球倶楽部（1934年）\n" + "↓\n" + "東京巨人軍（1935年〜1946年）\n" + "↓\n" + "読売ジャイアンツ（1947年〜）"));
+				is("大日本東京野球倶楽部（1934年）\n↓\n東京巨人軍（1935年〜1946年）\n↓\n読売ジャイアンツ（1947年〜）"));
 
 		System.out.println("主キー検索するテスト終了");
 	}

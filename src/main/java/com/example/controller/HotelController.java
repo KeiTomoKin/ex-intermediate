@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Hotel;
+import com.example.service.HotelService;
 
 /**
  * ホテル関連機能の処理の制御を行うコントローラー.
@@ -19,7 +20,6 @@ import com.example.domain.Hotel;
 @Controller
 @RequestMapping("/hotel")
 public class HotelController {
-
 	@Autowired
 	private HotelService hotelService;
 
@@ -29,11 +29,11 @@ public class HotelController {
 	 * @param model リクエストスコープ
 	 * @return ホテル検索画面
 	 */
-	@RequestMapping("/")
+	@RequestMapping("")
 	public String index(Model model) {
 		List<Hotel> hotelList = new ArrayList<Hotel>();
 		model.addAttribute("hotelList", hotelList);
-		return "hotel";
+		return "hotel/hotel";
 	}
 
 	/**
@@ -45,9 +45,12 @@ public class HotelController {
 	 */
 	@RequestMapping("/result")
 	public String result(Integer price, Model model) {
-		List<Hotel> hotelList = hotelService.showList(price);
+		List<Hotel> hotelList = hotelService.searchByLessThanPrice(price);
+		for(Hotel hotel:hotelList) {
+			System.out.println(hotel);
+		}
 		model.addAttribute("hotelList", hotelList);
-		return "hotel";
+		return "hotel/hotel";
 	}
 
 }

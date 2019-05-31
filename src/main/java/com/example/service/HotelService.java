@@ -24,10 +24,10 @@ public class HotelService {
 	/**
 	 * 指定した金額よりも安いホテルの情報リストを取得する.
 	 * @param price 金額
-	 * @return　ホテル情報のリスト
+	 * @return ホテル情報のリスト
 	 */
-	public List<Hotel> showList(Integer price){
-		return hotelRepository.findByPlice(price);
+	public List<Hotel> searchByLessThanPrice(Integer price){
+		return hotelRepository.searchByLessThanPrice(price);
 	}
 
 }
